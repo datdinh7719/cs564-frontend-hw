@@ -7,8 +7,8 @@
 5.  align-items: flex-end;
 6.  justify-content: center;
     align-items: center;
-7.  justify-content: center;
-    align-items: center;
+7.  justify-content: space-around;
+    align-items: flex-end;
 8.  flex-direction: row-reverse;
 9.  flex-direction: column;
 10. justify-content: flex-end;

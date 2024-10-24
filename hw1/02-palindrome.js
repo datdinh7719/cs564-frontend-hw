@@ -12,16 +12,30 @@ function handleInput() {
   resultMessage.textContent = "";
 
   // Check for invalid number
-  if (inputValue === "" || isNaN(inputValue)) {
+  if (inputValue === "") {
+    errorMessage.textContent = "Enter a positive number.";
+    resultMessage.textContent = "";
+    return;
+  }
+
+  // Check for invalid number
+  if (isNaN(inputValue)) {
     errorMessage.textContent = "Invalid number. Try again.";
     resultMessage.textContent = "";
     return;
   }
 
   // Check for negative number
-  const num = parseInt(inputValue, 10);
+  const num = parseFloat(inputValue, 10);
   if (num < 0) {
     errorMessage.textContent = "Negative number. Try again.";
+    resultMessage.textContent = "";
+    return;
+  }
+
+  // Check for non-integer
+  if (inputValue.includes(".")) {
+    errorMessage.textContent = "Number must be an integer. Try again.";
     resultMessage.textContent = "";
     return;
   }
