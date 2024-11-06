@@ -6,14 +6,10 @@ const textContainer = document.getElementById("textContainer");
 // Save the text
 const text = textContainer.textContent;
 
-// Function to for when the user press any key
-const handleKeyDown = (event) => {
-  // Check to see if the user pressed enter
-  if (event.key === "Enter") {
-    // Prevent the input from being submitted
-    event.preventDefault();
-    highlightMatches();
-  }
+// Function to for when the user type anything
+const handleKeyUp = (event) => {
+  event.preventDefault();
+  highlightMatches();
 };
 
 // Function to highlight matching words
@@ -35,4 +31,4 @@ const highlightMatches = () => {
   }
 };
 
-input.addEventListener("keydown", handleKeyDown);
+input.addEventListener("keyup", handleKeyUp);

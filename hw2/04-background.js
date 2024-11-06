@@ -6,6 +6,7 @@ let isRunning = false;
 const defaultInterval = 3000;
 const intervalInput = document.getElementById("interval");
 const toggleButton = document.getElementById("toggle");
+const errorMessage = document.getElementById("errorMessage");
 
 // Function to generate random color
 const getRandomColor = () => {
@@ -23,22 +24,27 @@ const changeBackgroundColor = () => {
 
 // Toggle function
 const toggleColorChange = () => {
-  if (isRunning) {
-    clearInterval(intervalID);
-    isRunning = false;
-    toggleButton.textContent = "Start";
-    toggleButton.classList.remove("btn-danger");
-    toggleButton.classList.add("btn-primary");
+  errorMessage.classList.add("visually-hidden");
+  if (intervalInput.value < 1) {
+    errorMessage.classList.remove("visually-hidden");
   } else {
-    const intervalTime = Math.max(
-      1000,
-      intervalInput.value * 1000 || defaultInterval
-    );
-    intervalID = setInterval(changeBackgroundColor, intervalTime);
-    isRunning = true;
-    toggleButton.textContent = "Stop";
-    toggleButton.classList.remove("btn-primary");
-    toggleButton.classList.add("btn-danger");
+    if (isRunning) {
+      clearInterval(intervalID);
+      isRunning = false;
+      toggleButton.textContent = "Start";
+      toggleButton.classList.remove("btn-danger");
+      toggleButton.classList.add("btn-primary");
+    } else {
+      const intervalTime = Math.max(
+        1000,
+        intervalInput.value * 1000 || defaultInterval
+      );
+      intervalID = setInterval(changeBackgroundColor, intervalTime);
+      isRunning = true;
+      toggleButton.textContent = "Stop";
+      toggleButton.classList.remove("btn-primary");
+      toggleButton.classList.add("btn-danger");
+    }
   }
 };
 
