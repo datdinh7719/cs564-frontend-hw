@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   NavLink,
   Outlet,
-} from 'react-router-dom';
-import './style.css';
+} from "react-router-dom";
+import "./style.css";
 
-import Home from './views/Home';
-import List from './views/List';
-import Population from './views/Population';
-import GDP from './views/GDP';
+import Home from "./views/Home";
+import List from "./views/List";
+import Population from "./views/Population";
+import GDP from "./views/GDP";
 
 export default function App() {
   return (
@@ -19,22 +19,22 @@ export default function App() {
       <nav className=" navbar-dark bg-dark">
         <ul className="nav nav-pills flex-column flex-sm-row ">
           <li className="nav-item text-sm-center flex-sm-fill">
-            <NavLink className="nav-link" exact to="/">
+            <NavLink className="nav-link text-white" exact to="/">
               Home
             </NavLink>
           </li>
           <li className="nav-item text-sm-center flex-sm-fill">
-            <NavLink className="nav-link" to="/List">
+            <NavLink className="nav-link text-white" to="/List">
               List
             </NavLink>
           </li>
           <li className="nav-item text-sm-center flex-sm-fill">
-            <NavLink className="nav-link" to="/Population">
+            <NavLink className="nav-link text-white" to="/Population">
               Population
             </NavLink>
           </li>
           <li className="nav-item text-sm-center flex-sm-fill">
-            <NavLink className="nav-link" to="/GDP">
+            <NavLink className="nav-link text-white" to="/GDP">
               GDP
             </NavLink>
           </li>
